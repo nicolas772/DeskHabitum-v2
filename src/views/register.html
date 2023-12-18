@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8" />
+   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+   <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+   <link rel="stylesheet" href="../styles/app.css">
+   <title>Desk Habitum</title>
+</head>
+
+<body>
+   <div class="form">
+      <h1>Registro</h1>
+      <form class="login-form">
+
+         <input id="reg_user" type="text" placeholder="Nombre" required>
+         <input id="reg_apellido" type="text" placeholder="Apellido" required>
+
+
+         <input id="reg_email" type="email" placeholder="Email" required>
+         <input id="reg_pass" type="password" placeholder="Contraseña" required>
+         <div id="tipo-intervalo">
+            <li >¿Eres lider de equipo?
+               <select class="form-control" id="reg_lider" >
+                  <option value="si">Si</option>
+                  <option value="no">No</option>
+               </select>
+            </li>
+         </div>
+         <button id="reg_btn">Registrarse</button>
+         <p class="message">Ya registrado?<a id="volver_login" href="#">Iniciar Sesión</a></p>
+      </form>
+   </div>
+</body>
+
+</html>

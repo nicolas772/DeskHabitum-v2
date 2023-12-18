@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8" />
+   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+   <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+   <link rel="stylesheet" href="../styles/app.css">
+   <title>Desk Habitum</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="info">
+
+      </div>
+   </div>
+   <div class="form">
+      <h1>Inicio de Sesión</h1>
+      <form class="login-form">
+         <input id="email" type="text" placeholder="Correo electrónico" />
+         <input id="password" type="password" placeholder="Contraseña" />
+         <button id="login">Iniciar Sesión</button>
+         <p class="message">No esta registrado?<a href="#" id="registro">Crear cuenta</a></p>
+      </form>
+   </div>
+</body>
+</html>

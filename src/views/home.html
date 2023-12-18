@@ -6,13 +6,14 @@
    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
-   <title>Hello from Electron renderer!</title>
+   <link rel="stylesheet" href="./src/styles/app.css">
+   <title>Desk Habitum</title>
 </head>
 
 <body>
-   <h1>Hello from Electron renderer!</h1>
+   <h1>Home Desk Habitum</h1>
    <p>👋</p>
-   <p id="info"></p>
+   <p id="info-home"></p>
 </body>
-<script src="./renders/renderer.js"></script>
+<script src="./src/renders/home.js"></script>
 </html>
