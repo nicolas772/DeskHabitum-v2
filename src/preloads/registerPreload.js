@@ -1,5 +1,4 @@
 const { ipcRenderer } = require('electron')
-const authController = require('../controllers/auth.controller')
 
 let nombre;
 let apellido;

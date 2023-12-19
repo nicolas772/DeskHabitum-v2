@@ -12,7 +12,7 @@ window.onload = function() {
   btnlogin = document.getElementById("login")
   reg_btn = document.getElementById("registro")
 
-  btnlogin.onclick = function(){
+  btnlogin.onclick = async function(){
     const obj = {email:email.value, password:password.value }
     ipcRenderer.invoke("login", obj)
   }
