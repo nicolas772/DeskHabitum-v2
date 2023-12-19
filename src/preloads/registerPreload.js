@@ -1,4 +1,5 @@
 const { ipcRenderer } = require('electron')
+const authController = require('../controllers/auth.controller')
 
 let nombre;
 let apellido;
@@ -15,9 +16,9 @@ window.onload = function () {
   regbtn = document.getElementById("reg_btn")
   volver = document.getElementById("volver_login")
 
-  regbtn.onclick = function () {
-    const obj = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value }
-    ipcRenderer.invoke("register", obj)
+  regbtn.onclick = async function () {
+    const datos = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value }
+    ipcRenderer.invoke("register", datos)
   }
 
   volver.onclick = function () {

@@ -1,5 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, Notification, ipcMain } = require('electron')
 const path = require('path')
+const db = require('./models');
+const authController = require('./controllers/auth.controller')
+
 let winLogin
 let winRegister
 
@@ -33,6 +36,9 @@ const createRegisterWindow = () => {
   winRegister.loadFile('src/views/register.html')
 }
 
+db.sequelize.sync({force: false}).then(() => {
+  console.log('Drop and Resync Db');
+});
 
 app.whenReady().then(() => {
   createLoginWindow()
@@ -48,8 +54,12 @@ ipcMain.handle('login', (event, obj) => {
   console.log(obj)
 });
 
-ipcMain.handle('register', (event, obj) => {
-  console.log(obj)
+ipcMain.handle('register', async (event, obj) => {
+  const res = await authController.signup(obj) 
+  new Notification({
+    title: res.title,
+    body: res.message,
+  }).show()
 });
 
 //Movimiento entre vistas login/registro
