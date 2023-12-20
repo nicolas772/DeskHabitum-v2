@@ -1,12 +1,21 @@
 // En tu archivo de renderizado
-async function obtenerYMostrarDatos() {
-    try {
-        const userData = await window.api.userData();
-        const information = document.getElementById('info-home');
-        information.innerText = `Bienvenido ${userData.nombre}`;
-    } catch (error) {
-        console.error('Error al obtener los datos:', error);
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+   const information = document.getElementById('info-home');
+   const logoutBtn = document.getElementById('logoutBtn');
 
-obtenerYMostrarDatos();
+   async function obtenerYMostrarDatos() {
+      try {
+         const user = await window.api.userData();
+         information.innerText = `Bienvenid@ ${user.nombre}`;
+         return user
+      } catch (error) {
+         console.error('Error al obtener los datos:', error);
+      }
+   }
+
+   obtenerYMostrarDatos();
+
+   logoutBtn.addEventListener('click', async () => {
+      await window.api.logout();
+   });
+});

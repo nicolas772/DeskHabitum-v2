@@ -1,26 +1,29 @@
-const { ipcRenderer } = require('electron')
+const { ipcRenderer } = require('electron');
 
-let nombre;
-let apellido;
-let email;
-let password;
-let regbtn;
-let volver;
+document.addEventListener('DOMContentLoaded', () => {
+  const emailInput = document.getElementById("reg_email");
+  const passwordInput = document.getElementById("reg_pass");
+  const nombreInput = document.getElementById("reg_user");
+  const apellidoInput = document.getElementById("reg_apellido");
+  const regBtn = document.getElementById("reg_btn");
+  const volverBtn = document.getElementById("volver_login");
 
-window.onload = function () {
-  email = document.getElementById("reg_email")
-  password = document.getElementById("reg_pass")
-  nombre = document.getElementById("reg_user")
-  apellido = document.getElementById("reg_apellido")
-  regbtn = document.getElementById("reg_btn")
-  volver = document.getElementById("volver_login")
+  regBtn.addEventListener('click', async () => {
+    const datos = {
+      nombre: nombreInput.value,
+      apellido: apellidoInput.value,
+      email: emailInput.value,
+      password: passwordInput.value
+    };
 
-  regbtn.onclick = async function () {
-    const datos = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value }
-    ipcRenderer.invoke("register", datos)
-  }
+    try {
+      await ipcRenderer.invoke("register", datos);
+    } catch (error) {
+      console.error('Error al intentar registrarse:', error);
+    }
+  });
 
-  volver.onclick = function () {
-    ipcRenderer.invoke("moveToLogin")
-  }
-}
+  volverBtn.addEventListener('click', () => {
+    ipcRenderer.invoke("moveToLogin");
+  });
+});

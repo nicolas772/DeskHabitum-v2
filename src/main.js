@@ -54,12 +54,17 @@ const createHomeWindow = () => {
   winMain.loadFile('src/views/home.html')
 }
 
-db.sequelize.sync({force: false}).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log('Drop and Resync Db');
 });
 
 app.whenReady().then(() => {
-  createLoginWindow()
+  const storedData = userDataStore.get('userData', null);
+  if (storedData){
+    createHomeWindow()
+  } else{
+    createLoginWindow()
+  }
 })
 
 app.on('window-all-closed', () => {
@@ -70,13 +75,13 @@ app.on('window-all-closed', () => {
 
 ipcMain.handle('login', async (event, obj) => {
   const res = await authController.login(obj)
-  if (res.success){
+  if (res.success) {
     userDataStore.set('userData', res.data);
     createHomeWindow()
     winLogin.close()
     new Notification({
       title: "Desk Habitum",
-      body: `Bienvenido ${res.data.nombre}!`,
+      body: `Bienvenid@, ${res.data.nombre}!`,
     }).show()
     return
   }
@@ -92,8 +97,20 @@ ipcMain.handle('getUserData', (event, obj) => {
   return storedData;
 });
 
+ipcMain.handle('logout', (event, obj) => {
+  // Acceder a los datos almacenados
+  const storedData = userDataStore.get('userData', null);
+  createLoginWindow()
+  winMain.close()
+  new Notification({
+    title: "Sesión Finalizada",
+    body: `Hasta pronto, ${storedData.nombre}!`,
+  }).show()
+  userDataStore.set('userData', null);
+});
+
 ipcMain.handle('register', async (event, obj) => {
-  const res = await authController.signup(obj) 
+  const res = await authController.signup(obj)
   new Notification({
     title: res.title,
     body: res.message,

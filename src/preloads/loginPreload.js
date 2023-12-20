@@ -1,23 +1,25 @@
-const { ipcRenderer } = require('electron')
+const { ipcRenderer } = require('electron');
 
-let btnlogin;
-let email; 
-let password;
-let reg_btn;
+document.addEventListener('DOMContentLoaded', () => {
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const loginButton = document.getElementById("login");
+  const registerButton = document.getElementById("registro");
 
+  loginButton.addEventListener('click', async () => {
+    const obj = {
+      email: emailInput.value,
+      password: passwordInput.value
+    };
+    
+    try {
+      await ipcRenderer.invoke("login", obj);
+    } catch (error) {
+      console.error('Error al intentar iniciar sesión:', error);
+    }
+  });
 
-window.onload = function() { 
-  email = document.getElementById("email")
-  password = document.getElementById("password")
-  btnlogin = document.getElementById("login")
-  reg_btn = document.getElementById("registro")
-
-  btnlogin.onclick = async function(){
-    const obj = {email:email.value, password:password.value }
-    ipcRenderer.invoke("login", obj)
-  }
-
-  reg_btn.onclick = function(){
-    ipcRenderer.invoke("moveToReg")
-  }
-}
+  registerButton.addEventListener('click', () => {
+    ipcRenderer.invoke("moveToReg");
+  });
+});
