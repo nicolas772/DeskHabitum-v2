@@ -9,6 +9,10 @@ let winLogin
 let winRegister
 let winMain
 
+db.sequelize.sync({ force: true }).then(() => {
+  console.log('Drop and Resync Db');
+});
+
 const createLoginWindow = () => {
   winLogin = new BrowserWindow({
     width: 1000,
@@ -53,10 +57,6 @@ const createHomeWindow = () => {
   })
   winMain.loadFile('src/views/home.html')
 }
-
-db.sequelize.sync({ force: false }).then(() => {
-  console.log('Drop and Resync Db');
-});
 
 app.whenReady().then(() => {
   const storedData = userDataStore.get('userData', null);
