@@ -9,7 +9,7 @@ let winLogin
 let winRegister
 let winMain
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ alter:false }).then(() => {
   console.log('Drop and Resync Db');
 });
 

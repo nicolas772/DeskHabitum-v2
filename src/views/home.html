@@ -7,14 +7,42 @@
    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
    <link rel="stylesheet" href="../styles/app.css">
+   <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+   <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
    <title>Desk Habitum</title>
 </head>
 
 <body>
+   <header class="p-3 mb-3 border-bottom">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-1 link-secondary">Reconocimiento: Desactivado</a></li>
+          </ul>
+
+          <div class="dropdown text-end">
+            
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="m-1" id="username"></span>
+              <img src="../img/profile.jpeg" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" href="#">Perfil</a></li>
+              <li><a class="dropdown-item" href="#">Configuraciones</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li id="logoutBtn"><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
    <h1>Home Desk Habitum</h1>
-   <p>👋</p>
-   <p id="info-home"></p>
-   <button id="logoutBtn">Cerrar Sesión</button>
 </body>
 <script src="../renders/home.js"></script>
 </html>
+
