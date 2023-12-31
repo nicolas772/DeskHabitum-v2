@@ -1,0 +1,17 @@
+.mi-elemento {
+    margin-left: 10px;
+    /* Ajusta este valor según tus necesidades */
+}
+
+.blur-image {
+    /* Add the blur effect */
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+
+.carousel-text {
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/opacity/see-through */
+    color: white;
+    border: 3px solid #f1f1f1;
+}

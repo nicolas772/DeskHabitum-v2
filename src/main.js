@@ -15,8 +15,8 @@ db.sequelize.sync({ alter:false }).then(() => {
 
 const createLoginWindow = () => {
   winLogin = new BrowserWindow({
-    width: 1000,
-    height: 700,
+    width: 1300,
+    height: 900,
     minHeight: 400,
     minWidth: 600,
     webPreferences: {
