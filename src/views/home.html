@@ -13,7 +13,7 @@
 </head>
 
 <body>
-   <header class="p-3 mb-3 border-bottom">
+   <header class="p-3 border-bottom">
       <div class="container">
          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -42,89 +42,94 @@
          </div>
       </div>
    </header>
-   <div class="container">
-      <div class="row align-items-start">
-         <div class="col">
-            <h2>Desk Habitum</h2>
-            <p class="pt-2">Activa el monitoreo para que la aplicación
-               comience el reconocimiento de malos hábitos a través de la webcam.</p>
-            <div class="pt-2 pb-4">
-               <button type="button" class="btn btn-success">Activar Monitoreo</button>
+   <div class="custom-bg">
+      <div class="container">
+         <div class="row align-items-start">
+            <div class="col">
+               <h2>Desk Habitum</h2>
+               <p class="pt-2">Activa el monitoreo para que la aplicación
+                  comience el reconocimiento de malos hábitos a través de la webcam.</p>
+               <div class="pt-2 pb-4">
+                  <button type="button" class="btn btn-success">Activar Monitoreo</button>
+               </div>
             </div>
-         </div>
-         <div class="col">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-               <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                     aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                     aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                     aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
-                     aria-label="Slide 4"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
-                     aria-label="Slide 5"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
-                     aria-label="Slide 6"></button>
-               </div>
-               <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="5000">
-                     <img src="../img/reconocimientoAuto.jpg" class="d-block w-100 blur-image" height="260">
-                     <div class="carousel-caption d-none d-md-block carousel-text">
-                        <h5>Reconocimiento Automático</h5>
-                        <p>A través de modelos de Machine Learning, es posible reconocer los distintos malos hábitos
-                           utilizando la webcam de tu computador.
-                        </p>
+            <div class="col">
+               <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+                  </div>
+                  <div class="carousel-inner">
+                     <div class="carousel-item active" data-bs-interval="5000">
+                        <img src="../img/reconocimientoAuto.jpg" class="d-block w-100 blur-image" height="260">
+                        <div class="carousel-caption d-none d-md-block carousel-text">
+                           <h5>Reconocimiento Automático</h5>
+                           <p>A través de modelos de Machine Learning, es posible reconocer los distintos malos hábitos
+                              utilizando la webcam de tu computador.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="carousel-item" data-bs-interval="5000">
+                        <img src="../img/morderUnha.jpg" class="d-block w-100 blur-image" height="260">
+                        <div class="carousel-caption d-none d-md-block carousel-text">
+                           <h5>Onicofagia / Nailbiting</h5>
+                           <p>Onicofagia, o morderse las uñas, es una de las manias más comunes entre jovenes y adultos.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="carousel-item" data-bs-interval="5000">
+                        <img src="../img/trico.png" class="d-block w-100 blur-image" height="260">
+                        <div class="carousel-caption d-none d-md-block carousel-text">
+                           <h5>Tricotilomanía</h5>
+                           <p>Tricotilomania consiste en jalarse impulsivamente el pelo hasta arrancarlo. Con Desk
+                              Habitum,
+                              podrás ser notificado cada vez que lo hagas.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="carousel-item" data-bs-interval="5000">
+                        <img src="../img/derma.jpg" class="d-block w-100 blur-image" height="260">
+                        <div class="carousel-caption d-none d-md-block carousel-text">
+                           <h5>Dermatilomanía</h5>
+                           <p>Las personas con este trastorno se pellizcan o arañan la piel repetidamente. Algunas
+                              personas
+                              incluso se pellizcan piel sana.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="carousel-item" data-bs-interval="5000">
+                        <img src="../img/nariz.jpeg" class="d-block w-100 blur-image" height="260">
+                        <div class="carousel-caption d-none d-md-block carousel-text">
+                           <h5>Rinotilexomanía</h5>
+                           <p>Esta manía se caracteriza por el rascado de la cavidad nasal de forma compulsiva. Aunque
+                              raramente
+                              conlleva a lesiones graves, puede llegar a producir autolesiones importantes.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="carousel-item" data-bs-interval="5000">
+                        <img src="../img/postura.jpeg" class="d-block w-100 blur-image" height="260">
+                        <div class="carousel-caption d-none d-md-block carousel-text">
+                           <h5>Otros malos habitos</h5>
+                           <p>Desk Habitum tambien reconoce cuando tienes mala postura frente al computador, o cuando
+                              muerdes objetos
+                              no comestibles.
+                           </p>
+                        </div>
                      </div>
                   </div>
-                  <div class="carousel-item" data-bs-interval="5000">
-                     <img src="../img/morderUnha.jpg" class="d-block w-100 blur-image" height="260">
-                     <div class="carousel-caption d-none d-md-block carousel-text">
-                        <h5>Onicofagia / Nailbiting</h5>
-                        <p>Onicofagia, o morderse las uñas, es una de las manias más comunes entre jovenes y adultos.
-                        </p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="5000">
-                     <img src="../img/trico.png" class="d-block w-100 blur-image" height="260">
-                     <div class="carousel-caption d-none d-md-block carousel-text">
-                        <h5>Tricotilomanía</h5>
-                        <p>Tricotilomania consiste en jalarse impulsivamente el pelo hasta arrancarlo. Con Desk Habitum,
-                           podrás ser notificado cada vez que lo hagas.
-                        </p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="5000">
-                     <img src="../img/derma.jpg" class="d-block w-100 blur-image" height="260">
-                     <div class="carousel-caption d-none d-md-block carousel-text">
-                        <h5>Dermatilomanía</h5>
-                        <p>Las personas con este trastorno se pellizcan o arañan la piel repetidamente. Algunas personas
-                           incluso se pellizcan piel sana.
-                        </p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="5000">
-                     <img src="../img/nariz.jpeg" class="d-block w-100 blur-image" height="260">
-                     <div class="carousel-caption d-none d-md-block carousel-text">
-                        <h5>Rinotilexomanía</h5>
-                        <p>Esta manía se caracteriza por el rascado de la cavidad nasal de forma compulsiva. Aunque
-                           raramente
-                           conlleva a lesiones graves, puede llegar a producir autolesiones importantes.
-                        </p>
-                     </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="5000">
-                     <img src="../img/postura.jpeg" class="d-block w-100 blur-image" height="260">
-                     <div class="carousel-caption d-none d-md-block carousel-text">
-                        <h5>Otros malos habitos</h5>
-                        <p>Desk Habitum tambien reconoce cuando tienes mala postura frente al computador, o cuando muerdes objetos
-                           no comestibles.
-                        </p>
-                     </div>
-                  </div>
-               </div>
 
+               </div>
             </div>
          </div>
       </div>
