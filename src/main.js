@@ -16,9 +16,9 @@ db.sequelize.sync({ alter:false }).then(() => {
 const createLoginWindow = () => {
   winLogin = new BrowserWindow({
     width: 1100,
-    height: 750,
+    height: 790,
     minWidth: 1100,
-    minHeight: 750,
+    minHeight: 790,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, './preloads/loginPreload.js'),
@@ -31,9 +31,9 @@ const createLoginWindow = () => {
 const createRegisterWindow = () => {
   winRegister = new BrowserWindow({
     width: 1100,
-    height: 750,
+    height: 800,
     minWidth: 1100,
-    minHeight: 750,
+    minHeight: 800,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, './preloads/registerPreload.js'),
@@ -46,9 +46,9 @@ const createRegisterWindow = () => {
 const createHomeWindow = () => {
   winMain = new BrowserWindow({
     width: 1100,
-    height: 750,
+    height: 786,
     minWidth: 1100,
-    minHeight: 750,
+    minHeight: 786,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, './preloads/homePreload.js'),
