@@ -4,6 +4,7 @@ const db = require('./models');
 const authController = require('./controllers/auth.controller')
 const Store = require('electron-store');
 const userDataStore = new Store({ name: 'userData' });
+userDataStore.set('monitoreo', 'Desactivado'); // Puedes cambiar `true` por el valor que desees
 
 let winLogin
 let winRegister
@@ -46,7 +47,7 @@ const createRegisterWindow = () => {
 const createHomeWindow = () => {
   winMain = new BrowserWindow({
     width: 1100,
-    height: 786,
+    height: 788,
     minWidth: 1100,
     minHeight: 786,
     webPreferences: {
@@ -93,8 +94,11 @@ ipcMain.handle('login', async (event, obj) => {
 
 ipcMain.handle('getUserData', (event, obj) => {
   // Acceder a los datos almacenados
-  const storedData = userDataStore.get('userData', null);
-  return storedData;
+  const user = userDataStore.get('userData', null);
+  const estadoMonitoreo = userDataStore.get('monitoreo');
+  return {
+    user: user,
+    estadoMonitoreo: estadoMonitoreo};
 });
 
 ipcMain.handle('logout', (event, obj) => {
@@ -129,8 +133,17 @@ ipcMain.handle('moveToLogin', (event, obj) => {
 });
 
 ipcMain.handle('activateMonitoring', (event, obj) => {
+  userDataStore.set('monitoreo', 'Activado'); 
   new Notification({
     title: "Monitoreo Iniciado",
     body: `El monitoreo ha comenzado. Si quieres detener el monitoreo, pulsa el botón en la pantalla inicial.`,
+  }).show()
+});
+
+ipcMain.handle('deactivateMonitoring', (event, obj) => {
+  userDataStore.set('monitoreo', 'Desactivado'); 
+  new Notification({
+    title: "Monitoreo Desactivado",
+    body: `El monitoreo ha sido desactivado correctamente.`,
   }).show()
 });

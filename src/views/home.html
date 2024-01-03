@@ -33,7 +33,7 @@
 
             <div class="col">
                <ul class="nav col-lg-auto me-lg-auto mb-2 mb-md-0 align-items-center justify-content-center">
-                  <li><a class="nav-link px-1 link-secondary">Reconocimiento: Desactivado</a></li>
+                  <li><a class="nav-link px-1 link-secondary">Reconocimiento: <span id="statusMonitoring">Desactivado</span></a></li>
                </ul>
             </div>
 
@@ -68,10 +68,11 @@
                   necesidades.</p>
                <div id="divActivateBtn" class="pt-2">
                   <button id="activateBtn" type="button" class="btn btn-success" data-bs-toggle="modal"
-                     data-bs-target="#exampleModal">Activar Monitoreo</button>
+                     data-bs-target="#modalActivar">Activar Monitoreo</button>
                </div>
                <div id="divDeactivateBtn" class="pt-2 oculto">
-                  <button id="deactivateBtn" type="button" class="btn btn-danger">Desactivar Monitoreo</button>
+                  <button id="deactivateBtn" type="button" class="btn btn-danger" data-bs-toggle="modal"
+                  data-bs-target="#modalDesactivar">Desactivar Monitoreo</button>
                </div>
                
                <div id="loadingSpinner" class="d-none text-center">
@@ -218,8 +219,8 @@
          </div>
       </div>
    </div>
-   <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <!-- Modal Activar-->
+   <div class="modal fade" id="modalActivar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
          <div class="modal-content">
             <div class="modal-header">
@@ -231,6 +232,23 @@
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                <button id="activateBtnModal" type="button" class="btn btn-primary" data-bs-dismiss="modal">Iniciar Monitoreo</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Modal Desactivar-->
+   <div class="modal fade" id="modalDesactivar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
+            </div>
+            <div class="modal-body">
+               ¿Estás seguro que desear desactivar el monitoreo?
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+               <button id="deactivateBtnModal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Detener Monitoreo</button>
             </div>
          </div>
       </div>
