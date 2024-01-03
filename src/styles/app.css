@@ -41,3 +41,19 @@
     background-color: rgba(255, 255, 255, 0.551);
     border-radius: 5px;
 }
+
+#loadingSpinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ /* Estilos adicionales para centrar el texto y el spinner */
+ #loadingSpinner span {
+    margin-bottom: 10px; /* Ajusta el margen según tus necesidades */
+ }
+
+ .oculto {
+    display: none;
+ }

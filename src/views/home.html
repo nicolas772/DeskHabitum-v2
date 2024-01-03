@@ -64,9 +64,21 @@
                <h2>Desk Habitum</h2>
                <p class="pt-2">Activa el monitoreo para que la aplicación
                   comience el reconocimiento de malos hábitos a través de la webcam.
-                  Además, puedes <a href="./configuraciones.html">configurar</a> el reconocimiento según tus necesidades.</p>
-               <div class="pt-2 pb-4">
-                  <button type="button" class="btn btn-success">Activar Monitoreo</button>
+                  Además, puedes <a href="./configuraciones.html">configurar</a> el reconocimiento según tus
+                  necesidades.</p>
+               <div id="divActivateBtn" class="pt-2">
+                  <button id="activateBtn" type="button" class="btn btn-success" data-bs-toggle="modal"
+                     data-bs-target="#exampleModal">Activar Monitoreo</button>
+               </div>
+               <div id="divDeactivateBtn" class="pt-2 oculto">
+                  <button id="deactivateBtn" type="button" class="btn btn-danger">Desactivar Monitoreo</button>
+               </div>
+               
+               <div id="loadingSpinner" class="d-none text-center">
+                  <div class="spinner-border" role="status">
+                     <span class="visually-hidden">Cargando...</span>
+                  </div>
+                  <span>Cargando...</span>
                </div>
             </div>
             <div class="col">
@@ -99,7 +111,8 @@
                         <img src="../img/morderUnha.jpg" class="d-block w-100 blur-image" height="260">
                         <div class="carousel-caption d-none d-md-block carousel-text">
                            <h5>Onicofagia / Nailbiting</h5>
-                           <p>Consiste en la manía de comer o morderse las uñas con los dientes. Entre un 20% y 30% de la 
+                           <p>Consiste en la manía de comer o morderse las uñas con los dientes. Entre un 20% y 30% de
+                              la
                               población sufre esta patología.
                            </p>
                         </div>
@@ -201,6 +214,23 @@
                      </div>
                   </div>
                </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
+            </div>
+            <div class="modal-body">
+               ¿Estás seguro que desear iniciar el monitoreo? Este proceso podría demorar algunos segundos.
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+               <button id="activateBtnModal" type="button" class="btn btn-primary" data-bs-dismiss="modal">Iniciar Monitoreo</button>
             </div>
          </div>
       </div>

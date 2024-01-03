@@ -127,3 +127,10 @@ ipcMain.handle('moveToLogin', (event, obj) => {
   createLoginWindow()
   winRegister.close();
 });
+
+ipcMain.handle('activateMonitoring', (event, obj) => {
+  new Notification({
+    title: "Monitoreo Iniciado",
+    body: `El monitoreo ha comenzado. Si quieres detener el monitoreo, pulsa el botón en la pantalla inicial.`,
+  }).show()
+});
