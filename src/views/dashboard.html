@@ -4,8 +4,9 @@
 <head>
    <meta charset="UTF-8" />
    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-   
+
    <link rel="stylesheet" href="../styles/app.css">
+   <link rel="stylesheet" href="../styles/dashboard.css">
    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -75,8 +76,61 @@
       </ul>
       <div class="tab-content" id="myTabContent">
          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="container pt-4">
-               <div id="myChart"></div>
+            <div>
+               <div id="container" class="pt-2">
+                  <div class="kpi-card orange">
+                     <span class="card-value">10m 2seg</span>
+                     <span class="card-text">Duración Última Sesión</span>
+                  </div>
+
+
+                  <div class="kpi-card purple">
+                     <span class="card-value">29</span>
+                     <span class="card-text">Cantidad Detecciones Totales</span>
+                  </div>
+
+                  <div class="kpi-card grey-dark">
+                     <span class="card-value">72,4% </span>
+                     <span class="card-text">Porcentaje Detecciones Manias </span>
+                  </div>
+
+                  <div class="kpi-card red">
+                     <span class="card-value">27,6%</span>
+                     <span class="card-text">Porcentaje Detecciones Malos Hábitos</span>
+                  </div>
+               </div>
+               <div class="container pt-3 p-1">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <div class="card">
+                           <div class="card-header">
+                              Detalle porcentual de manias
+                           </div>
+                           <div class="card-body">
+                              <div id="detallePorcentualManias"></div>
+                           </div>
+                        </div>
+                        <div class="card mt-1">
+                           <div class="card-header">
+                              Detalle porcentual de malos hábitos
+                           </div>
+                           <div class="card-body">
+                              <div id="detallePorcentualMalosHabitos"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card">
+                           <div class="card-header">
+                              Detecciones acumuladas en diferentes instantes de sesión
+                           </div>
+                           <div class="card-body">
+                              <div id="myChart1"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>  
+               </div>
             </div>
          </div>
          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -87,14 +141,10 @@
             </div>
          </div>
          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            <div class="container pt-4">
-               <div class="container pt-4">
-                  <div id="myChart3"></div>
-               </div>
-            </div>
+            
          </div>
       </div>
-   </div>
 </body>
 <script src="../renders/dashboard.js"></script>
+
 </html>
