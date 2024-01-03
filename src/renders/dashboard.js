@@ -110,19 +110,121 @@ function mostrarDashboardUltimaSesión() {
 
 function mostrarDashboardManias() {
   var options = {
+    series: [
+      {
+        name: "Funnel Series",
+        data: [170, 25, 20, 15],
+      },
+    ],
     chart: {
-      type: 'line'
+      type: 'bar',
+      height: 250,
     },
-    series: [{
-      name: 'sales',
-      data: [30, 40, 35, 50, 49, 60, 70, 91, 500]
-    }],
+    plotOptions: {
+      bar: {
+        borderRadius: 0,
+        horizontal: true,
+        barHeight: '50%',
+        isFunnel: true,
+      },
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val, opt) {
+        return opt.w.globals.labels[opt.dataPointIndex] + ':  ' + val
+      },
+      dropShadow: {
+        enabled: true,
+      },
+    },
     xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+      categories: [
+        'Onicofagia',
+        'Tricotilomanía',
+        'Dermatilomanía',
+        'Rinotilexomanía',
+      ],
+    },
+    legend: {
+      show: false,
+    },
+  };
+
+  var options2 = {
+    series: [{
+      name: 'Onicofagia',
+      data: [44, 55, 41, 67, 22]
+    }, {
+      name: 'Tricotilomanía',
+      data: [13, 23, 20, 8, 13]
+    }, {
+      name: 'Dermatilomanía',
+      data: [11, 17, 15, 15, 21]
+    }, {
+      name: 'Rinotilexomanía',
+      data: [21, 7, 25, 13, 22]
+    }],
+    chart: {
+      type: 'bar',
+      height: 250,
+      width: 500,
+      stacked: true,
+      toolbar: {
+        show: true
+      },
+      zoom: {
+        enabled: false
+      }
+    },
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        legend: {
+          position: 'top',
+          offsetX: -10,
+          offsetY: 0
+        }
+      }
+    }],
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        borderRadius: 5,
+        dataLabels: {
+          total: {
+            enabled: true,
+            style: {
+              fontSize: '12px',
+              fontWeight: 800
+            }
+          }
+        }
+      },
+    },
+    xaxis: {
+      categories: [
+        "02/12/2023",
+        "04/12/2023",
+        "15/12/2023",
+        "20/12/2023",
+        "27/12/2023"
+      ],
+    },
+    legend: {
+      position: 'top',
+    },
+    fill: {
+      opacity: 1
     }
-  }
-  var chart = new ApexCharts(document.getElementById('myChart2'), options);
+  };
+
+  var chart2 = new ApexCharts(document.getElementById("tendenciaManias"), options2);
+  chart2.render();
+
+  var chart = new ApexCharts(document.getElementById("funnelManias"), options);
   chart.render();
+
+
 }
 
 function mostrarDashboardMalosHabitos() {
