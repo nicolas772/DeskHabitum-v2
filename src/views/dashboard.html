@@ -4,11 +4,11 @@
 <head>
    <meta charset="UTF-8" />
    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
-   <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+   
    <link rel="stylesheet" href="../styles/app.css">
    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
    <title>Desk Habitum</title>
 </head>
 
@@ -76,22 +76,25 @@
       <div class="tab-content" id="myTabContent">
          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="container pt-4">
-               TAB 1
+               <div id="myChart"></div>
             </div>
          </div>
          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="container pt-4">
-               TAB 2
+               <div class="container pt-4">
+                  <div id="myChart2"></div>
+               </div>
             </div>
          </div>
          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
             <div class="container pt-4">
-               TAB 3
+               <div class="container pt-4">
+                  <div id="myChart3"></div>
+               </div>
             </div>
          </div>
       </div>
    </div>
 </body>
 <script src="../renders/dashboard.js"></script>
-
 </html>
