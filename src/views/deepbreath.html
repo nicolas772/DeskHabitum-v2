@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200&display=swap" rel="stylesheet">
+    <link href="../styles/deepbreathing.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="titlebar">
+        <a href="./home.html" class="title-link">
+            <h1 class="title">Volver a Inicio</h1>
+        </a>
+        <label class="toggle">
+            <input id="noise-toggle" class="toggle_input" type="checkbox">
+            <span class="toggle_slider"></span>
+            <span class="toggle_text">Música</span>
+        </label>
+    </header>
+
+    <main class="stage">
+        <div id="instruction" class="instruction" style="animation: fadeIn 2s forwards;">
+            Bienvenido, selecciona un patrón de respiración para iniciar.
+            <br><br>
+            <span class="note">El patrón se repetirá durante aproximadamente dos minutos después de comenzar</span>
+        </div>
+
+        <div id="animatron" class="animatron"></div>
+    </main>
+
+    <footer class="control-panel">
+        <img class="control-panel_decoration decoration" src="../styles/curve.svg" aria-hidden="true">
+
+        <ul class="controls">
+            <li>
+                <button class="control" type="button" data-animation="equal">
+                    <span class="control_text">Equal</span>
+                </button>
+            </li>
+
+            <li>
+                <button class="control" type="button" data-animation="half478">
+                    <span class="control_text no-descenders">4/7/8 Half</span>
+                </button>
+            </li>
+
+            <li>
+                <button class="control" type="button" data-animation="full478">
+                    <span class="control_text no-descenders">4/7/8 Full</span>
+                </button>
+            </li>
+        </ul>
+
+
+    </footer>
+    <audio id="miAudio" src="../sounds/relaxing-music-vol1.mp3" preload="auto"></audio>
+    <script src="../renders/deepbreathing.js" type="module"></script>
+</body>
+
+</html>
