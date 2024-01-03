@@ -122,14 +122,14 @@
                      <div class="col">
                         <div class="card">
                            <div class="card-header">
-                              Detecciones acumuladas en diferentes instantes de sesión
+                              Detecciones acumuladas en diferentes instantes de la última sesión
                            </div>
                            <div class="card-body">
                               <div id="myChart1"></div>
                            </div>
                         </div>
                      </div>
-                  </div>  
+                  </div>
                </div>
             </div>
          </div>
@@ -179,12 +179,59 @@
                            </div>
                         </div>
                      </div>
-                  </div>  
+                  </div>
                </div>
             </div>
          </div>
          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            
+            <div>
+               <div id="container" class="pt-2">
+                  <div class="kpi-card orange">
+                     <span class="card-value">170</span>
+                     <span class="card-text">Cantidad Total Detecciones</span>
+                  </div>
+
+
+                  <div class="kpi-card purple">
+                     <span class="card-value">Mala Postura</span>
+                     <span class="card-text">Tu Principal Mal Hábito</span>
+                  </div>
+
+                  <div class="kpi-card grey-dark">
+                     <span class="card-value">81%</span>
+                     <span class="card-text">Promedio por sesión de tu Principal Mal Hábito</span>
+                  </div>
+
+                  <div class="kpi-card red">
+                     <span class="card-value">3m 49seg</span>
+                     <span class="card-text">Tiempo promedio por sesión de tu Principal Mal Hábito</span>
+                  </div>
+               </div>
+               <div class="container pt-3 p-1">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <div class="card">
+                           <div class="card-header">
+                              Cantidad Total por Mal Hábito
+                           </div>
+                           <div class="card-body">
+                              <div id="funnelHabitos"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="card">
+                           <div class="card-header">
+                              Tendencia de malos hábitos en las últimas 5 sesiones
+                           </div>
+                           <div class="card-body">
+                              <div id="tendenciaHabitos"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
 </body>
