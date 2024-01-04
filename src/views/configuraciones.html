@@ -12,18 +12,19 @@
    <title>Configuraciones</title>
 </head>
 <style>
-   .nav-link{
-      color: rgba(0, 100, 0, 0.908);
+   .nav-link {
+      color: rgba(0, 0, 0, 0.836);
    }
-   .nav :hover{
-      color: darkgreen;
+
+   .nav :hover {
+      color: black;
    }
-   .nav-pills .nav-link.active{
-      background-color: green !important;
+
+   .nav-pills .nav-link.active {
+      background-color:darkgrey !important;
 
    }
 
-   /* Agrega más clases personalizadas según sea necesario */
 </style>
 
 <body class="d-flex flex-nowrap">
@@ -38,13 +39,302 @@
          <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings"
             type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Pomodoro</button>
       </div>
+
+      <div class="d-flex justify-content-center border-top mt-auto pt-3">
+         <button id="guardarCambiosBtn" class="btn btn-success mt-auto">Guardar Cambios</button>
+      </div>
+
    </div>
    <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...
+      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+         <div class="container p-4 pb-0">
+            <div class="pb-4">
+               <h5>Detección Manías</h5>
+               <p class="text-secondary">Aquí podrás activar y desactivar las manías que Desk Habitum monitoreará.</p>
+               <div class="bg-light text-dark rounded">
+                  <div class="border-bottom p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch"
+                           id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">
+                           Dermatilomanía
+                           <span class="text-secondary">(pellizcar piel)</span>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="border-bottom p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">
+                           Onicofagia
+                           <span class="text-secondary">(morder uñas)</span>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="border-bottom p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">
+                           Rinotilexomanía
+                           <span class="text-secondary">(hurgar nariz)</span>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">
+                           Tricotilomanía
+                           <span class="text-secondary">(jalar cabello)</span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div>
+               <h5>Detección Malos Hábitos</h5>
+               <p class="text-secondary">Aquí podrás activar y desactivar los malos hábitos que Desk Habitum
+                  monitoreará.</p>
+               <div class="bg-light text-dark rounded">
+                  <div class="border-bottom p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Fatiga Visual</label>
+                     </div>
+                  </div>
+                  <div class="border-bottom p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Mala Postura</label>
+                     </div>
+                  </div>
+                  <div class="p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Morder Objetos</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+         <div class="container p-4 pb-0">
+            <div class="pb-4">
+               <h5>Notificarme por</h5>
+               <p class="text-secondary">Aquí puedes elegir el intervalo con que se te notificará. Ajustalo según tus
+                  necesidades.</p>
+               <div class="bg-light text-dark rounded">
+                  <div class="border-bottom p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-5 pt-2">
+                           <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                 id="flexRadioDefault1">
+                              <label class="form-check-label" for="flexRadioDefault1">
+                                 Cantidad de reconocimientos
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-md-7">
+                           <select class="form-select w-75" id="exampleSelect" aria-label="Default select example">
+                              <option selected>Selecciona Intervalo</option>
+                              <option value="2">cada 2 reconocimientos</option>
+                              <option value="4">cada 4 reconocimientos</option>
+                              <option value="8">cada 8 reconocimientos</option>
+                              <option value="0">Siempre</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-5 pt-1">
+                           <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                 id="flexRadioDefault1">
+                              <label class="form-check-label" for="flexRadioDefault1">
+                                 Tiempo
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-md-7">
+                           <select class="form-select w-75" id="exampleSelect" aria-label="Default select example">
+                              <option selected>Selecciona Intervalo</option>
+                              <option value="1">cada 1 minuto</option>
+                              <option value="5">cada 5 minutos</option>
+                              <option value="10">cada 10 minutos</option>
+                              <option value="0">Siempre</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+         <div class="container p-4 pb-0">
+            <div class="pb-4">
+               <h5>Activar Sonidos</h5>
+               <p class="text-secondary">Aquí podrás activar y desactivar los distintos sonidos de la aplicación</p>
+               <div class="bg-light text-dark rounded">
+                  <div class="border-bottom p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Alerta General</label>
+                     </div>
+                  </div>
+                  <div class="border-bottom p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Alerta Manías Compulsivas</label>
+                     </div>
+                  </div>
+                  <div class="p-2">
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Alerta Malos Hábitos</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div>
+               <h5>Personalización</h5>
+               <p class="text-secondary">Aquí podrás personalizar los sonidos para tu aplicación.</p>
+               <div class="bg-light text-dark rounded">
+                  <div class="border-bottom p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-5 pt-2">
+                           <label for="exampleSelect" class="form-label">Sonido General:</label>
+                        </div>
+                        <div class="col-md-7">
+                           <select class="form-select w-75" id="exampleSelect" aria-label="Default select example">
+                              <option selected>Selecciona una opción</option>
+                              <option value="1">Alerta 1</option>
+                              <option value="2">Alerta 2</option>
+                              <option value="3">Alerta 3</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="border-bottom p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-5 pt-2">
+                           <label for="exampleSelect" class="form-label">Tema Manías Compulsivas:</label>
+                        </div>
+                        <div class="col-md-7">
+                           <select class="form-select w-75" id="exampleSelect" aria-label="Default select example">
+                              <option selected>Selecciona una opción</option>
+                              <option value="1">Alertas</option>
+                              <option value="2">No!</option>
+                              <option value="3">Pajaros</option>
+                              <option value="4">Pianos</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-5 pt-2">
+                           <label for="exampleSelect" class="form-label">Tema Malos Hábitos:</label>
+                        </div>
+                        <div class="col-md-7">
+                           <select class="form-select w-75" id="exampleSelect" aria-label="Default select example">
+                              <option selected>Selecciona una opción</option>
+                              <option value="1">Alertas</option>
+                              <option value="2">No!</option>
+                              <option value="3">Pajaros</option>
+                              <option value="4">Pianos</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+         <div class="container p-4 pb-0">
+            <div class="pb-4">
+               <h5>Pomodoro</h5>
+               <p class="text-secondary">Aquí podrás personalizar los intervalos de duración de tu pomodoro.</p>
+               <div class="bg-light text-dark rounded">
+                  <div class="border-bottom p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-4 pt-2">
+                           <label for="exampleSelect" class="form-label">Duración total:</label>
+                        </div>
+                        <div class="col-md-8">
+                           <div class="input-group w-50">
+                              <input type="number" class="form-control"
+                                 aria-label="Dollar amount (with dot and two decimal places)" name="numero" min="1"
+                                 value="25">
+                              <span class="input-group-text">minutos</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="border-bottom p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-4 pt-2">
+                           <label for="exampleSelect" class="form-label">Break corto:</label>
+                        </div>
+                        <div class="col-md-8">
+                           <div class="input-group w-50">
+                              <input type="number" class="form-control"
+                                 aria-label="Dollar amount (with dot and two decimal places)" name="numero" min="1"
+                                 value="5">
+                              <span class="input-group-text">minutos</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="border-bottom p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-4 pt-2">
+                           <label for="exampleSelect" class="form-label">Break largo:</label>
+                        </div>
+                        <div class="col-md-8">
+                           <div class="input-group w-50">
+                              <input type="number" class="form-control"
+                                 aria-label="Dollar amount (with dot and two decimal places)" name="numero" min="1"
+                                 value="15">
+                              <span class="input-group-text">minutos</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="p-2">
+                     <div class="d-flex align-items-center justify-content-center">
+                        <div class="col-md-4 pt-2">
+                           <label for="exampleSelect" class="form-label">Intervalo para break largo:</label>
+                        </div>
+                        <div class="col-md-8">
+                           <div class="input-group w-75">
+                              <span class="input-group-text">cada</span>
+                              <input type="number" class="form-control text-center"
+                                 aria-label="Dollar amount (with dot and two decimal places)" name="numero" min="1"
+                                 value="4">
+                              <span class="input-group-text">breaks corto</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
    </div>
 </body>
 <script src="../renders/configuraciones.js"></script>

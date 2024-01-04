@@ -69,13 +69,14 @@ const createSettingWindow = () => {
   // Verifica si la ventana ya está abierta
   if (!openWindows.setting) {
     winSetting = new BrowserWindow({
-      width: 800,
+      width: 850,
       height: 600,
       minWidth: 800,
       minHeight: 600,
+      resizable: false,
       webPreferences: {
         nodeIntegration: true,
-        preload: path.join(__dirname, './preloads/settingPreload.js'),
+        preload: path.join(__dirname, './preloads/homePreload.js'),
         enableRemoteModule: true
       }
     })
@@ -101,6 +102,7 @@ const createPerfilWindow = () => {
       height: 600,
       minWidth: 800,
       minHeight: 600,
+      resizable: false,
       webPreferences: {
         nodeIntegration: true,
         preload: path.join(__dirname, './preloads/perfilPreload.js'),
@@ -129,6 +131,7 @@ const createContactarWindow = () => {
       height: 600,
       minWidth: 800,
       minHeight: 600,
+      resizable: false,
       webPreferences: {
         nodeIntegration: true,
         preload: path.join(__dirname, './preloads/contactarPreload.js'),
@@ -250,3 +253,13 @@ ipcMain.handle('openPerfil', (event, obj) => {
 ipcMain.handle('openContactar', (event, obj) => {
   createContactarWindow();
 });
+
+ipcMain.handle('guardarCambiosSetting', (event, obj) => {
+  winSetting.close()
+  new Notification({
+    title: "Configuración Guardada",
+    body: `La configuración se ha almacenado correctamente.`,
+  }).show()
+  
+});
+

@@ -8,4 +8,5 @@ contextBridge.exposeInMainWorld('api', {
   openSetting: () => ipcRenderer.invoke('openSetting'),
   openPerfil: () => ipcRenderer.invoke('openPerfil'),
   openContactar: () => ipcRenderer.invoke('openContactar'),
+  guardarCambiosSetting: () => ipcRenderer.invoke('guardarCambiosSetting'),
 });
