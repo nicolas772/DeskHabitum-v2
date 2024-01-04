@@ -4,16 +4,50 @@
 <head>
    <meta charset="UTF-8" />
    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
-   <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+
    <link rel="stylesheet" href="../styles/app.css">
+   <link rel="stylesheet" href="../styles/sidebars.css">
    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
    <title>Configuraciones</title>
 </head>
+<style>
+   .nav-link{
+      color: rgba(0, 100, 0, 0.908);
+   }
+   .nav :hover{
+      color: darkgreen;
+   }
+   .nav-pills .nav-link.active{
+      background-color: green !important;
 
-<body>
-   <h1>Configuraciones</h1>
+   }
+
+   /* Agrega más clases personalizadas según sea necesario */
+</style>
+
+<body class="d-flex flex-nowrap">
+   <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 200px;">
+      <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+         <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+            type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+         <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+            type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Notificaciones</button>
+         <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages"
+            type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Sonido</button>
+         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings"
+            type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Pomodoro</button>
+      </div>
+   </div>
+   <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...
+      </div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+   </div>
 </body>
 <script src="../renders/configuraciones.js"></script>
+<script src="../renders/sidebars.js"></script>
+
 </html>

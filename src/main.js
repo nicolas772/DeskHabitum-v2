@@ -9,6 +9,9 @@ userDataStore.set('monitoreo', 'Desactivado'); // Puedes cambiar `true` por el v
 let winLogin
 let winRegister
 let winMain
+let winSetting
+let winPerfil
+let winContactar
 
 // Mantén un registro de las ventanas abiertas
 const openWindows = {};
@@ -65,7 +68,7 @@ const createHomeWindow = () => {
 const createSettingWindow = () => {
   // Verifica si la ventana ya está abierta
   if (!openWindows.setting) {
-    const winSetting = new BrowserWindow({
+    winSetting = new BrowserWindow({
       width: 800,
       height: 600,
       minWidth: 800,
@@ -93,7 +96,7 @@ const createSettingWindow = () => {
 const createPerfilWindow = () => {
   // Verifica si la ventana ya está abierta
   if (!openWindows.perfil) {
-    const winPerfil = new BrowserWindow({
+    winPerfil = new BrowserWindow({
       width: 800,
       height: 600,
       minWidth: 800,
@@ -121,7 +124,7 @@ const createPerfilWindow = () => {
 const createContactarWindow = () => {
   // Verifica si la ventana ya está abierta
   if (!openWindows.contactar) {
-    const winContactar = new BrowserWindow({
+    winContactar = new BrowserWindow({
       width: 800,
       height: 600,
       minWidth: 800,
