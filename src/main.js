@@ -10,16 +10,19 @@ let winLogin
 let winRegister
 let winMain
 
-db.sequelize.sync({ alter:false }).then(() => {
+// Mantén un registro de las ventanas abiertas
+const openWindows = {};
+
+db.sequelize.sync({ alter: false }).then(() => {
   console.log('Drop and Resync Db');
 });
 
 const createLoginWindow = () => {
   winLogin = new BrowserWindow({
     width: 1100,
-    height: 790,
+    height: 788,
     minWidth: 1100,
-    minHeight: 790,
+    minHeight: 786,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, './preloads/loginPreload.js'),
@@ -32,9 +35,9 @@ const createLoginWindow = () => {
 const createRegisterWindow = () => {
   winRegister = new BrowserWindow({
     width: 1100,
-    height: 800,
+    height: 788,
     minWidth: 1100,
-    minHeight: 800,
+    minHeight: 786,
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, './preloads/registerPreload.js'),
@@ -59,11 +62,95 @@ const createHomeWindow = () => {
   winMain.loadFile('src/views/home.html')
 }
 
+const createSettingWindow = () => {
+  // Verifica si la ventana ya está abierta
+  if (!openWindows.setting) {
+    const winSetting = new BrowserWindow({
+      width: 800,
+      height: 600,
+      minWidth: 800,
+      minHeight: 600,
+      webPreferences: {
+        nodeIntegration: true,
+        preload: path.join(__dirname, './preloads/settingPreload.js'),
+        enableRemoteModule: true
+      }
+    })
+    winSetting.on('closed', () => {
+      openWindows.setting = null;
+    });
+  
+    winSetting.loadFile('src/views/configuraciones.html')
+  
+    // Registra la ventana abierta
+    openWindows.setting = winSetting;
+  } else {
+    // Si la ventana ya está abierta, enfócala
+    openWindows.setting.focus();
+  }
+}
+
+const createPerfilWindow = () => {
+  // Verifica si la ventana ya está abierta
+  if (!openWindows.perfil) {
+    const winPerfil = new BrowserWindow({
+      width: 800,
+      height: 600,
+      minWidth: 800,
+      minHeight: 600,
+      webPreferences: {
+        nodeIntegration: true,
+        preload: path.join(__dirname, './preloads/perfilPreload.js'),
+        enableRemoteModule: true
+      }
+    })
+    winPerfil.on('closed', () => {
+      openWindows.perfil = null;
+    });
+  
+    winPerfil.loadFile('src/views/perfil.html')
+  
+    // Registra la ventana abierta
+    openWindows.perfil = winPerfil;
+  }else {
+    // Si la ventana ya está abierta, enfócala
+    openWindows.perfil.focus();
+  }
+}
+
+const createContactarWindow = () => {
+  // Verifica si la ventana ya está abierta
+  if (!openWindows.contactar) {
+    const winContactar = new BrowserWindow({
+      width: 800,
+      height: 600,
+      minWidth: 800,
+      minHeight: 600,
+      webPreferences: {
+        nodeIntegration: true,
+        preload: path.join(__dirname, './preloads/contactarPreload.js'),
+        enableRemoteModule: true
+      }
+    })
+    winContactar.on('closed', () => {
+      openWindows.contactar = null;
+    });
+  
+    winContactar.loadFile('src/views/contactoProfesional.html')
+  
+    // Registra la ventana abierta
+    openWindows.contactar = winContactar;
+  }else {
+    // Si la ventana ya está abierta, enfócala
+    openWindows.contactar.focus();
+  }
+}
+
 app.whenReady().then(() => {
   const storedData = userDataStore.get('userData', null);
-  if (storedData){
+  if (storedData) {
     createHomeWindow()
-  } else{
+  } else {
     createLoginWindow()
   }
 })
@@ -98,7 +185,8 @@ ipcMain.handle('getUserData', (event, obj) => {
   const estadoMonitoreo = userDataStore.get('monitoreo');
   return {
     user: user,
-    estadoMonitoreo: estadoMonitoreo};
+    estadoMonitoreo: estadoMonitoreo
+  };
 });
 
 ipcMain.handle('logout', (event, obj) => {
@@ -133,7 +221,7 @@ ipcMain.handle('moveToLogin', (event, obj) => {
 });
 
 ipcMain.handle('activateMonitoring', (event, obj) => {
-  userDataStore.set('monitoreo', 'Activado'); 
+  userDataStore.set('monitoreo', 'Activado');
   new Notification({
     title: "Monitoreo Iniciado",
     body: `El monitoreo ha comenzado. Si quieres detener el monitoreo, pulsa el botón en la pantalla inicial.`,
@@ -141,9 +229,21 @@ ipcMain.handle('activateMonitoring', (event, obj) => {
 });
 
 ipcMain.handle('deactivateMonitoring', (event, obj) => {
-  userDataStore.set('monitoreo', 'Desactivado'); 
+  userDataStore.set('monitoreo', 'Desactivado');
   new Notification({
     title: "Monitoreo Desactivado",
     body: `El monitoreo ha sido desactivado correctamente.`,
   }).show()
+});
+
+ipcMain.handle('openSetting', (event, obj) => {
+  createSettingWindow();
+});
+
+ipcMain.handle('openPerfil', (event, obj) => {
+  createPerfilWindow();
+});
+
+ipcMain.handle('openContactar', (event, obj) => {
+  createContactarWindow();
 });

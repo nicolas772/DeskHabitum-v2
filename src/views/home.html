@@ -23,7 +23,6 @@
                         <img src="../img/circularLogo.png" alt="mdo" width="50" height="50" class="rounded-circle">
                      </a>
                   </div>
-                  
                </div>
             </div>
 
@@ -41,8 +40,8 @@
                      <img src="../img/profile.jpeg" alt="mdo" width="32" height="32" class="rounded-circle">
                   </a>
                   <ul class="dropdown-menu text-small dropdown-menu-end">
-                     <li><a class="dropdown-item" href="./perfil.html">Perfil</a></li>
-                     <li><a class="dropdown-item" href="./configuraciones.html">Configuraciones</a></li>
+                     <li><a id="perfil" class="dropdown-item" href="#">Perfil</a></li>
+                     <li><a id="setting" class="dropdown-item" href="#">Configuraciones</a></li>
                      <li>
                         <hr class="dropdown-divider">
                      </li>
@@ -60,7 +59,7 @@
                <h2>Desk Habitum</h2>
                <p class="pt-2">Activa el monitoreo para que la aplicación
                   comience el reconocimiento de malos hábitos a través de la webcam.
-                  Además, puedes <a href="./configuraciones.html">configurar</a> el reconocimiento según tus
+                  Además, puedes <a id="settingLink" href="#">configurar</a> el reconocimiento según tus
                   necesidades.</p>
                <div id="divActivateBtn" class="pt-2">
                   <button id="activateBtn" type="button" class="btn btn-success" data-bs-toggle="modal"
@@ -99,7 +98,7 @@
                         <img src="../img/reconocimientoAuto.jpg" class="d-block w-100 blur-image" height="260">
                         <div class="carousel-caption d-none d-md-block carousel-text">
                            <h5>Reconocimiento Automático</h5>
-                           <p>A través de modelos de Machine Learning, es posible reconocer los distintos malos hábitos
+                           <p>A través de modelos de Machine Learning, es posible reconocer distintas manías compulsivas y malos habitos
                               utilizando la webcam de tu computador.
                            </p>
                         </div>
@@ -147,10 +146,9 @@
                      <div class="carousel-item" data-bs-interval="5000">
                         <img src="../img/postura.jpeg" class="d-block w-100 blur-image" height="260">
                         <div class="carousel-caption d-none d-md-block carousel-text">
-                           <h5>Otros malos habitos</h5>
-                           <p>Desk Habitum tambien reconoce cuando tienes mala postura frente al computador, o cuando
-                              muerdes objetos
-                              no comestibles.
+                           <h5>Malos habitos</h5>
+                           <p>Desk Habitum tambien reconoce cuando tienes mala postura frente al computador, cuando
+                              muerdes objetos no comestibles y detecta señales de fatiga visual.
                            </p>
                         </div>
                      </div>
@@ -207,7 +205,7 @@
                      <div class="card-body">
                         <h5 class="card-title">Contacta un profesional</h5>
                         <p class="card-text">No dudes en contactar si tu problema se agraba.</p>
-                        <a href="./contactoProfesional.html" class="btn btn-success">Contactar</a>
+                        <a id="contactar" href="#" class="btn btn-success">Contactar</a>
                      </div>
                   </div>
                </div>

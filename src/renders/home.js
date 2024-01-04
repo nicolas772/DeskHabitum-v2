@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', async () => {
    const deactivateBtn = document.getElementById("deactivateBtn");
    const divDeactivateBtn = document.getElementById("divDeactivateBtn");
    const deactivateBtnModal = document.getElementById('deactivateBtnModal');
+   const settingLink = document.getElementById('settingLink');
+   const setting = document.getElementById('setting');
+   const perfil = document.getElementById('perfil');
+   const contactar = document.getElementById('contactar');
 
    obtenerYMostrarDatos(name, statusMonitoring);
 
@@ -28,6 +32,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
    logoutBtn.addEventListener('click', async () => {
       await window.api.logout();
+   });
+
+   settingLink.addEventListener('click', async () => {
+      await window.api.openSetting();
+   });
+
+   setting.addEventListener('click', async () => {
+      await window.api.openSetting();
+   });
+
+   perfil.addEventListener('click', async () => {
+      await window.api.openPerfil();
+   });
+
+   contactar.addEventListener('click', async () => {
+      await window.api.openContactar();
    });
    
    activateBtnModal.addEventListener("click", async function () {

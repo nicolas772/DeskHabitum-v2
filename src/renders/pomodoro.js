@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', async () => {
    const name = document.getElementById('username');
    const statusMonitoring = document.getElementById('statusMonitoring')
    const logoutBtn = document.getElementById('logoutBtn');
+   const setting = document.getElementById('setting');
+   const perfil = document.getElementById('perfil');
 
    obtenerYMostrarDatos(name, statusMonitoring);
 
@@ -10,6 +12,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
    logoutBtn.addEventListener('click', async () => {
       await window.api.logout();
+   });
+   setting.addEventListener('click', async () => {
+      await window.api.openSetting();
+   });
+
+   perfil.addEventListener('click', async () => {
+      await window.api.openPerfil();
    });
 });
 

@@ -5,4 +5,7 @@ contextBridge.exposeInMainWorld('api', {
   logout: () => ipcRenderer.invoke('logout'),
   activateMonitoring: () => ipcRenderer.invoke('activateMonitoring'),
   deactivateMonitoring: () => ipcRenderer.invoke('deactivateMonitoring'),
+  openSetting: () => ipcRenderer.invoke('openSetting'),
+  openPerfil: () => ipcRenderer.invoke('openPerfil'),
+  openContactar: () => ipcRenderer.invoke('openContactar'),
 });

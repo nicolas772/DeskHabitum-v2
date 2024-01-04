@@ -47,25 +47,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
- }
- 
- /* Estilos adicionales para centrar el texto y el spinner */
- #loadingSpinner span {
-    margin-bottom: 10px; /* Ajusta el margen según tus necesidades */
- }
+}
 
- .oculto {
+/* Estilos adicionales para centrar el texto y el spinner */
+#loadingSpinner span {
+    margin-bottom: 10px;
+    /* Ajusta el margen según tus necesidades */
+}
+
+.oculto {
     display: none;
- }
+}
 
- /* Aplica un color verde al texto de las pestañas no seleccionadas */
+/* Aplica un color verde al texto de las pestañas no seleccionadas */
 .nav-tabs .nav-link {
     color: rgb(15, 132, 99);
 }
 
 /* Aplica un color diferente al texto de la pestaña activa */
 .nav-tabs .nav-link.active {
-    color: #000; /* Puedes ajustar este color según tus preferencias */
+    color: #000;
+    /* Puedes ajustar este color según tus preferencias */
 }
 
 /* Aplica un color rojo al texto de la pestaña cuando el mouse está sobre ella */
