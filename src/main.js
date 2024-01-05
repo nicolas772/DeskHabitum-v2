@@ -127,10 +127,8 @@ const createContactarWindow = () => {
   // Verifica si la ventana ya está abierta
   if (!openWindows.contactar) {
     winContactar = new BrowserWindow({
-      width: 800,
-      height: 600,
-      minWidth: 800,
-      minHeight: 600,
+      width: 1000,
+      height: 710,
       resizable: false,
       webPreferences: {
         nodeIntegration: true,

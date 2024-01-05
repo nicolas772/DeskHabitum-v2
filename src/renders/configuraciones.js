@@ -2,6 +2,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const guardarCambiosBtn = document.getElementById('guardarCambiosBtn');
     guardarCambiosBtn.addEventListener('click', async () => {
-        await window.api.guardarCambiosSetting();
-     });
+        setTimeout(async function () {
+            await window.api.guardarCambiosSetting();
+        }, 300);
+
+    });
 });
