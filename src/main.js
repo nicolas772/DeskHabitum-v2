@@ -128,11 +128,11 @@ const createContactarWindow = () => {
   if (!openWindows.contactar) {
     winContactar = new BrowserWindow({
       width: 1000,
-      height: 710,
+      height: 720,
       resizable: false,
       webPreferences: {
         nodeIntegration: true,
-        preload: path.join(__dirname, './preloads/contactarPreload.js'),
+        preload: path.join(__dirname, './preloads/homePreload.js'),
         enableRemoteModule: true
       }
     })
@@ -257,6 +257,15 @@ ipcMain.handle('guardarCambiosSetting', (event, obj) => {
   new Notification({
     title: "Configuración Guardada",
     body: `La configuración se ha almacenado correctamente.`,
+  }).show()
+  
+});
+
+ipcMain.handle('enviarCorreoProfesional', (event, obj) => {
+  winContactar.close()
+  new Notification({
+    title: "Contacto Profesional",
+    body: `Correo enviado exitosamente. Espera la respuesta del profesional a través de tu correo electrónico.`,
   }).show()
   
 });

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8" />
+   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+
+   <link rel="stylesheet" href="../styles/app.css">
+   <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+   <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   <title>Contacto Profesional</title>
+</head>
+
+<style>
+   .form-control:focus {
+      box-shadow: 0 0 10px rgba(0, 128, 0, 0.453) !important;
+      border-color: rgba(0, 128, 0, 0.221);
+   }
+   .form-select:focus {
+      box-shadow: 0 0 10px rgba(0, 128, 0, 0.453) !important;
+      border-color: rgba(0, 128, 0, 0.221);
+   }
+</style>
+
+<body>
+   <div class="container p-4 pb-0">
+      <div class="pb-2">
+         <h4>Formulario</h4>
+         <p class="text-secondary">
+            Completa el siguiente formulario para contactar al profesional seleccionado. También puedes
+            <a href="contactoProfesional.html">volver a seleccionar profesional</a>.
+         </p>
+      </div>
+      <div class="bg-light p-3 rounded">
+         <form>
+            <div class="row mb-3">
+               <div class="col">
+                  <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" placeholder="Ingresa tu nombre" aria-label="First name">
+               </div>
+               <div class="col">
+                  <label for="exampleInputEmail1" class="form-label">Apellido</label>
+                  <input type="text" class="form-control" placeholder="Ingresa tu apellido" aria-label="Last name">
+               </div>
+            </div>
+            <div class="row mb-3">
+               <div class="col">
+                  <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" placeholder="Ingresa tu correo" aria-label="First name">
+               </div>
+               <div class="col">
+                  <label for="exampleInputEmail1" class="form-label">Tipo de consulta</label>
+                  <select class="form-select" aria-label="Default select example">
+                     <option selected>Elige una opción</option>
+                     <option value="1">Presencial</option>
+                     <option value="2">Online</option>
+                  </select>
+               </div>
+            </div>
+            <div class="mb-3">
+               <label for="exampleFormControlTextarea1" class="form-label">Motivo de la consulta</label>
+               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+         </form>
+         <div id="divSubmitBtn">
+            <button id="submitBtn" class="btn btn-success">Contactar profesional</button>
+         </div>
+         <div id="loadingSpinner" class="d-none text-center">
+            <div class="spinner-border" role="status"></div>
+            <span>Enviando...</span>
+         </div>
+      </div>
+   </div>
+</body>
+<script src="../renders/contactoProfesional.js"></script>
+
+</html>
