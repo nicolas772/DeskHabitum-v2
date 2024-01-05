@@ -1,6 +1,8 @@
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: './src/icons/logo',
+    appBundleId: 'desk Habitum v2'
   },
   rebuildConfig: {},
   makers: [

@@ -45,7 +45,8 @@
                      <li>
                         <hr class="dropdown-divider">
                      </li>
-                     <li id="logoutBtn"><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                     <li data-bs-toggle="modal"
+                     data-bs-target="#modalLogout"><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
                   </ul>
                </div>
             </div>
@@ -242,6 +243,23 @@
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                <button id="deactivateBtnModal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Detener Monitoreo</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Modal Cerrar Sesión-->
+   <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
+            </div>
+            <div class="modal-body">
+               ¿Estás seguro que deseas cerrar sesión?
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+               <button id="logoutBtn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar Sesión</button>
             </div>
          </div>
       </div>

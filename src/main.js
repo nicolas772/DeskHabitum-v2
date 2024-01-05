@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Notification, ipcMain } = require('electron')
+const { app, BrowserWindow, Notification, ipcMain, dialog } = require('electron')
 const path = require('path')
 const db = require('./models');
 const authController = require('./controllers/auth.controller')
@@ -6,9 +6,9 @@ const Store = require('electron-store');
 const userDataStore = new Store({ name: 'userData' });
 userDataStore.set('monitoreo', 'Desactivado'); // Puedes cambiar `true` por el valor que desees
 
-let winLogin
+let winLogin = null
 let winRegister
-let winMain
+let winMain = null
 let winSetting
 let winPerfil
 let winContactar
@@ -33,6 +33,9 @@ const createLoginWindow = () => {
     }
   })
   winLogin.loadFile('src/views/login.html')
+  winLogin.on('closed', function () {
+    winLogin = null;
+  });
 }
 
 const createRegisterWindow = () => {
@@ -63,6 +66,9 @@ const createHomeWindow = () => {
     }
   })
   winMain.loadFile('src/views/home.html')
+  winMain.on('closed', function () {
+    winMain = null;
+  });
 }
 
 const createSettingWindow = () => {
@@ -83,9 +89,9 @@ const createSettingWindow = () => {
     winSetting.on('closed', () => {
       openWindows.setting = null;
     });
-  
+
     winSetting.loadFile('src/views/configuraciones.html')
-  
+
     // Registra la ventana abierta
     openWindows.setting = winSetting;
   } else {
@@ -112,12 +118,12 @@ const createPerfilWindow = () => {
     winPerfil.on('closed', () => {
       openWindows.perfil = null;
     });
-  
+
     winPerfil.loadFile('src/views/perfil.html')
-  
+
     // Registra la ventana abierta
     openWindows.perfil = winPerfil;
-  }else {
+  } else {
     // Si la ventana ya está abierta, enfócala
     openWindows.perfil.focus();
   }
@@ -139,12 +145,12 @@ const createContactarWindow = () => {
     winContactar.on('closed', () => {
       openWindows.contactar = null;
     });
-  
+
     winContactar.loadFile('src/views/contactoProfesional.html')
-  
+
     // Registra la ventana abierta
     openWindows.contactar = winContactar;
-  }else {
+  } else {
     // Si la ventana ya está abierta, enfócala
     openWindows.contactar.focus();
   }
@@ -165,6 +171,36 @@ app.on('window-all-closed', () => {
   }
 })
 
+// Create a new window when the app is activated (on macOS)
+app.on('activate', function () {
+  if (winMain === null && winLogin === null) {
+    const storedData = userDataStore.get('userData', null);
+    if (storedData) {
+      createHomeWindow()
+    } else {
+      createLoginWindow()
+    }
+  }
+});
+
+// Handle the before-quit event
+app.on('before-quit', function (event) {
+  const storedData = userDataStore.get('userData', null);
+  if (storedData) {
+    const choice = dialog.showMessageBoxSync(winMain, {
+      type: 'question',
+      buttons: ['Cancelar', 'Confirmar'],
+      defaultId: 1,
+      title: 'Confirmación',
+      message: '¿Estás seguro de que deseas cerrar la aplicación?'
+    });
+    if (choice === 0) {
+      // Cancelar el cierre de la aplicación
+      event.preventDefault();
+    }
+  }
+});
+
 ipcMain.handle('login', async (event, obj) => {
   const res = await authController.login(obj)
   if (res.success) {
@@ -174,12 +210,14 @@ ipcMain.handle('login', async (event, obj) => {
     new Notification({
       title: "Desk Habitum",
       body: `Bienvenid@, ${res.data.nombre}!`,
+      icon: path.join(__dirname, 'src/img/logo.png')
     }).show()
     return
   }
   new Notification({
     title: res.title,
     body: res.message,
+    icon: path.join(__dirname, 'src/img/logo.png')
   }).show()
 });
 
@@ -201,6 +239,7 @@ ipcMain.handle('logout', (event, obj) => {
   new Notification({
     title: "Sesión Finalizada",
     body: `Hasta pronto, ${storedData.nombre}!`,
+    icon: path.join(__dirname, 'src/img/logo.png')
   }).show()
   userDataStore.set('userData', null);
 });
@@ -210,6 +249,7 @@ ipcMain.handle('register', async (event, obj) => {
   new Notification({
     title: res.title,
     body: res.message,
+    icon: path.join(__dirname, 'src/img/logo.png')
   }).show()
 });
 
@@ -229,6 +269,7 @@ ipcMain.handle('activateMonitoring', (event, obj) => {
   new Notification({
     title: "Monitoreo Iniciado",
     body: `El monitoreo ha comenzado. Si quieres detener el monitoreo, pulsa el botón en la pantalla inicial.`,
+    icon: path.join(__dirname, 'src/img/logo.png')
   }).show()
 });
 
@@ -237,6 +278,7 @@ ipcMain.handle('deactivateMonitoring', (event, obj) => {
   new Notification({
     title: "Monitoreo Desactivado",
     body: `El monitoreo ha sido desactivado correctamente.`,
+    icon: path.join(__dirname, 'src/img/logo.png')
   }).show()
 });
 
@@ -257,8 +299,9 @@ ipcMain.handle('guardarCambiosSetting', (event, obj) => {
   new Notification({
     title: "Configuración Guardada",
     body: `La configuración se ha almacenado correctamente.`,
+    icon: path.join(__dirname, 'src/img/logo.png')
   }).show()
-  
+
 });
 
 ipcMain.handle('enviarCorreoProfesional', (event, obj) => {
@@ -266,7 +309,8 @@ ipcMain.handle('enviarCorreoProfesional', (event, obj) => {
   new Notification({
     title: "Contacto Profesional",
     body: `Correo enviado exitosamente. Espera la respuesta del profesional a través de tu correo electrónico.`,
+    icon: path.join(__dirname, 'src/img/logo.png')
   }).show()
-  
+
 });
 
