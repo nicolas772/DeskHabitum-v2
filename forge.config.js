@@ -2,26 +2,20 @@ module.exports = {
   packagerConfig: {
     asar: true,
     icon: './src/icons/logo',
-    appBundleId: 'desk Habitum v2'
+    appBundleId: 'Desk Habitum v2'
   },
   rebuildConfig: {},
   makers: [
     {
+      name: '@electron-forge/maker-zip'
+    },
+    {
       name: '@electron-forge/maker-squirrel',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-zip',
-      platforms: ['darwin'],
-    },
-    {
-      name: '@electron-forge/maker-deb',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-rpm',
-      config: {},
-    },
+      config: {
+        certificateFile: './cert.pfx',
+        certificatePassword: 'this-is-a-secret'
+      }
+    }
   ],
   plugins: [
     {

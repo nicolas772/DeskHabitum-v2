@@ -27,9 +27,7 @@ const createLoginWindow = () => {
     minWidth: 1100,
     minHeight: 786,
     webPreferences: {
-      nodeIntegration: true,
       preload: path.join(__dirname, './preloads/loginPreload.js'),
-      enableRemoteModule: true
     }
   })
   winLogin.loadFile('src/views/login.html')
@@ -45,9 +43,7 @@ const createRegisterWindow = () => {
     minWidth: 1100,
     minHeight: 786,
     webPreferences: {
-      nodeIntegration: true,
       preload: path.join(__dirname, './preloads/registerPreload.js'),
-      enableRemoteModule: true
     }
   })
   winRegister.loadFile('src/views/register.html')
@@ -60,9 +56,7 @@ const createHomeWindow = () => {
     minWidth: 1100,
     minHeight: 786,
     webPreferences: {
-      nodeIntegration: true,
       preload: path.join(__dirname, './preloads/homePreload.js'),
-      enableRemoteModule: true
     }
   })
   winMain.loadFile('src/views/home.html')
@@ -81,9 +75,7 @@ const createSettingWindow = () => {
       minHeight: 600,
       resizable: false,
       webPreferences: {
-        nodeIntegration: true,
         preload: path.join(__dirname, './preloads/homePreload.js'),
-        enableRemoteModule: true
       }
     })
     winSetting.on('closed', () => {
@@ -110,9 +102,7 @@ const createPerfilWindow = () => {
       minHeight: 600,
       resizable: false,
       webPreferences: {
-        nodeIntegration: true,
-        preload: path.join(__dirname, './preloads/perfilPreload.js'),
-        enableRemoteModule: true
+        preload: path.join(__dirname, './preloads/homePreload.js'),
       }
     })
     winPerfil.on('closed', () => {
@@ -137,9 +127,7 @@ const createContactarWindow = () => {
       height: 720,
       resizable: false,
       webPreferences: {
-        nodeIntegration: true,
         preload: path.join(__dirname, './preloads/homePreload.js'),
-        enableRemoteModule: true
       }
     })
     winContactar.on('closed', () => {
