@@ -6,6 +6,8 @@ const Store = require('electron-store');
 const userDataStore = new Store({ name: 'userData' });
 userDataStore.set('monitoreo', 'Desactivado'); // Puedes cambiar `true` por el valor que desees
 
+if (require('electron-squirrel-startup')) app.quit();
+
 let winLogin = null
 let winRegister
 let winMain = null

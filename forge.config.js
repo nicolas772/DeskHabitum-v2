@@ -12,8 +12,8 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        certificateFile: './cert.pfx',
-        certificatePassword: 'this-is-a-secret'
+        authors: 'Dolphin Dev',
+        description: 'App para manias compulsivas'
       }
     }
   ],
